@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://TheButtonScript.gd" type="Script" id=1]
-[ext_resource path="res://StartScreneScript.gd" type="Script" id=2]
+[ext_resource path="res://StartScreenScript.gd" type="Script" id=2]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
