@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TheButtonScript.gd" type="Script" id=1]
+[ext_resource path="res://StartScreneScript.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.144871, -0.18853, 0.971323, 0.0278112, 0.982067, 0.186467, -0.98906, -1.88323e-09, 0.147516, 2.37823, 0, 0 )
+
+[node name="ALabel" type="Label" parent="."]
+anchor_left = 0.011
+anchor_top = 0.022
+anchor_right = 0.054
+anchor_bottom = 0.075
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.776471, 0.137255, 0.137255, 1 )
+text = "And this is where the story begins."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TheButton" type="Button" parent="."]
+margin_left = 329.0
+margin_top = 1.0
+margin_right = 401.0
+margin_bottom = 67.0
+text = "A"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="TheButton" to="." method="_on_TheButton_button_down"]
+[connection signal="pressed" from="TheButton" to="TheButton" method="_on_TheButton_pressedOderSo"]
