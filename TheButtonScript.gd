@@ -8,8 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	a = a + 1
-	text = "A "+str(a)
+	#a = a + delta
+	#text = "A "+str(a)
+	pass
 
 func _on_TheButton_pressedOderSo():
 	hide()
