@@ -90,7 +90,7 @@ mesh = SubResource( 9 )
 material/0 = null
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
-transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0.5, 0 )
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0.5, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 shape = SubResource( 10 )
