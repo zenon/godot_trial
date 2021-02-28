@@ -1,31 +1,37 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://TheButtonScript.gd" type="Script" id=1]
 [ext_resource path="res://StartScreenScript.gd" type="Script" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://Box.gd" type="Script" id=4]
 
-[sub_resource type="CylinderShape" id=3]
+[sub_resource type="CylinderShape" id=1]
+
+[sub_resource type="CylinderMesh" id=2]
+
+[sub_resource type="Skin" id=3]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.933333, 0.352941, 0.0352941, 1 )
 
 [sub_resource type="CylinderMesh" id=4]
+material = SubResource( 14 )
 
-[sub_resource type="Skin" id=5]
+[sub_resource type="Skin" id=13]
 
-[sub_resource type="CylinderMesh" id=6]
-
-[sub_resource type="PhysicsMaterial" id=8]
+[sub_resource type="PhysicsMaterial" id=5]
 rough = true
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="BoxShape" id=8]
 
 [sub_resource type="CubeMesh" id=9]
-
-[sub_resource type="BoxShape" id=10]
-
-[sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 0.34902, 0.811765, 0.219608, 1 )
 
 [node name="Spatial" type="Spatial"]
@@ -74,16 +80,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Player"]
-mesh = SubResource( 4 )
-skin = SubResource( 5 )
+mesh = SubResource( 2 )
+skin = SubResource( 3 )
 material/0 = null
 
 [node name="Nose" type="MeshInstance" parent="Player"]
 transform = Transform( 0.5, 0, 0, 0, -1.62921e-07, -0.5, 0, 1, -8.14603e-08, 0, 0, 0.3 )
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
+skin = SubResource( 13 )
 material/0 = null
 
 [node name="Camera" type="Camera" parent="Player"]
@@ -91,26 +98,26 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0
 
 [node name="Box" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
-physics_material_override = SubResource( 8 )
+physics_material_override = SubResource( 5 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Box"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Box"]
-mesh = SubResource( 9 )
+mesh = SubResource( 7 )
 material/0 = null
 
 [node name="Floor" type="KinematicBody" parent="."]
 transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0.5, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 12, 0 )
